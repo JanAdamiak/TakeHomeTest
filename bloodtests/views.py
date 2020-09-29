@@ -24,11 +24,6 @@ class TestDetails(APIView):
         bloodtest = self.get_object_by_name(code)
         serializer = BloodtestsSerializer(bloodtest, many=False)
         return Response(serializer.data)
-
-    def head(self, request, code, format=None):
-        bloodtest = self.get_object_by_name(code)
-        serializer = BloodtestsSerializer(bloodtest, many=False)
-        return Response(serializer.data)
     
     def post(self, request, code, format=None):
         #if (request.data['lower'] > request.data['upper']) or ((request.data['lower'] == None) and (request.data['upper'] == None)):
